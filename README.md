@@ -17,7 +17,7 @@ Now you can sync your source:
 repo sync
 ```
 
-To auotomatic make the twrp installer, See https://gerrit.twrp.me/c/android_build/+/4964 for details
+To automatic make the twrp installer, See https://gerrit.twrp.me/c/android_build/+/4964 for details
 
 Finally execute these:
 
