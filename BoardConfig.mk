@@ -156,3 +156,16 @@ TARGET_USES_LOGD := true
 TARGET_RECOVERY_DEVICE_MODULES += debuggerd
 TW_RECOVERY_ADDITIONAL_RELINK_FILES += $(TARGET_OUT_EXECUTABLES)/debuggerd
 TW_USE_FSCRYPT_POLICY := 1
+
+# Custom TWRP Versioning
+# device version is optional - the default value is "0" if nothing is set in device tree
+CUSTOM_TWRP_DEVICE_VERSION := 0
+
+# version prefix is optional - the default value is "LOCAL" if nothing is set in device tree
+CUSTOM_TWRP_VERSION_PREFIX := micky387
+
+include device/common/version-info/custom_twrp_version.mk
+
+ifeq ($(CUSTOM_TWRP_VERSION),)
+CUSTOM_TWRP_VERSION := $(shell date +%Y%m%d)-01
+endif
