@@ -5,18 +5,10 @@ It was released in May 2019.
 
 ## Compile
 
-First download omni-9.0 tree:
+First download twrp 12.1 tree:
 
 ```
-repo init -u git://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git -b twrp-9.0
-```
-Then add these string to .repo/manifests/remove.xml
-
-
-Then add these projects to .repo/local_manifests/roomservice.xml (If you don't have it, you can add them to .repo/manifest.xml): 
-
-```xml
-<project name="TeamWin/android_device_asus_I01WD" path="device/asus/I01WD" remote="github" revision="android-9.0" />
+repo init -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-12.1
 ```
 
 Now you can sync your source:
@@ -25,7 +17,7 @@ Now you can sync your source:
 repo sync
 ```
 
-To auotomatic make the twrp installer, you need to import this commit in the build/make path: https://gerrit.omnirom.org/#/c/android_build/+/33182/
+To auotomatic make the twrp installer, See https://gerrit.twrp.me/c/android_build/+/4964 for details
 
 Finally execute these:
 
@@ -33,14 +25,14 @@ Finally execute these:
 . build/envsetup.sh
 export ALLOW_MISSING_DEPENDENCIES=true
 export LC_ALL=C
-lunch omni_I01WD-eng
-mka adbd recoveryimage 
+lunch twrp_I01WD-eng
+mka bootimage
 ```
 
 To test it:
 
 ```
-fastboot boot out/target/product/I01WD/recovery.img
+fastboot boot out/target/product/I01WD/boot.img
 ```
 
-Kernel Source: https://github.com/LineageOS/android_kernel_asus_sm8150
+Kernel Source: https://github.com/asus-development/android_kernel_asus_sm8150/tree/android-11-twrp
