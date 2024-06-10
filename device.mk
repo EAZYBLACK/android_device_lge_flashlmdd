@@ -1,5 +1,5 @@
 # A/B support
-AB_OTA_UPDATER := true
+.AB_OTA_UPDATER := true
 
 # A/B updater updatable partitions list. Keep in sync with the partition list
 # with "_a" and "_b" variants in the device. Note that the vendor can add more
@@ -50,12 +50,9 @@ PRODUCT_SOONG_NAMESPACES += \
 
 # Overrides
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_DEVICE=ASUS_I01WD \
-    PRODUCT_NAME=WW_$(PRODUCT_RELEASE_NAME) \
-    TARGET_DEVICE=ZS630KL
+    PRODUCT_DEVICE=flashlmdd \
+    PRODUCT_NAME=LG_V50_ThinQ \
+    TARGET_DEVICE=flashlmdd
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.build.product=ZS630KL
-
-# Include OEM keys for zip signature verification
-PRODUCT_EXTRA_RECOVERY_KEYS += $(LOCAL_PATH)/security/$(BOARD_VENDOR)
+    ro.build.product=flashlmdd
